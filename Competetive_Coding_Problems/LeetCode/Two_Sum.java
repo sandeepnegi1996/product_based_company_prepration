@@ -90,24 +90,20 @@ class Solution {
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        
-         int result[]=new int[2];
-        Arrays.fill(result, 0);
-        int difference=0;
         HashMap<Integer,Integer> map=new HashMap<>();
-        for (int i = 0; i < nums.length; i++) 
-            map.put(i,nums[i]);
+        int complement=0;
+        for (int i = 0; i < nums.length; i++) {
+            complement=target-nums[i];
 
-        for (int i = 0; i < nums.length-1; i++) {
-                difference=target-nums[i];
-                if (map.containsKey(difference)) {
-
-                    
-                }
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement),i};
+                
+            } else {
+                map.put(nums[i], i);
+            }
         }
-//            System.out.println(result[0]+"  "+result[1]);
+        return new int[]{};
 
-       return result;  
     }
 }
 
